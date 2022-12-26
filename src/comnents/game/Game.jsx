@@ -25,6 +25,8 @@ function Game(){
   const[winner,setWinner]=useState(0)
   const[winnerLine, setWinnerLine] = useState({})
   const[draw,setDraw]=useState(false)
+  const[xWinnerTimes,setXWinnerTimes] = useState(0)
+  const[circleWinnerTimes,setCircleWinnerTimes]= useState(0)
 
   const handleClick = (pos) => {
     if(gameState[pos]===0 && winner === 0){
@@ -42,8 +44,15 @@ function Game(){
       const values = Line.map((pos) => gameState[pos])
       const sum = values.reduce((sum,value)=> sum + value)
 
-      if (sum === 3 || sum === -3) setWinner(sum/3),setWinnerLine(Line)
-      console.log("VENCEDOR:",sum/3)
+      if (sum === 3 || sum === -3) {
+      setWinner(sum/3)
+      setWinnerLine(Line)
+      sum > 0 ?
+       setCircleWinnerTimes(circleWinnerTimes + 1) 
+       : 
+       setXWinnerTimes(xWinnerTimes + 1)
+      //console.log("VENCEDOR:",sum/3)
+      }
 
     })
 
@@ -118,7 +127,10 @@ function Game(){
     
       
     </div>
-    <Score/>
+    <Score
+    xWinnerTimes={xWinnerTimes}
+    circleWinnerTimes={circleWinnerTimes}
+    />
 
     </>
   )
