@@ -5,6 +5,7 @@ import styles from './Game.module.css'
 
 import GameOption from '../gameOption/GameOption'
 import GameInfo from '../gameInfo/GameInfo'
+import Score from '../score/Score'
 const winnerTable = [
   [0,1,2],
   [3,4,5],
@@ -84,7 +85,10 @@ function Game(){
 
 
 
-  return(
+  return (
+    <>
+    
+   
     <div className={styles.gameContent}>
       <div className={styles.game}>
       {
@@ -114,8 +118,9 @@ function Game(){
     
       
     </div>
+    <Score/>
 
-  
+    </>
   )
 }
 
