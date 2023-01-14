@@ -25,7 +25,7 @@ return(
     }
 
     {
-      status === -1 && <GameIcon iconName="X"/>
+      status === -1 && <GameIcon iconName="x"/>
     }
 
 
